@@ -6,85 +6,137 @@
     <title>Observatorio de Aire - Santiago</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #eceff1;
+            color: #333;
         }
+
+        /* Header con la imagen de Santiago */
         header {
             width: 100%;
-            height: 300px;
-            background-image: url('https://cmasudd-aigame.github.io/lineabase_aire/santiago.png');
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://cmasudd-aigame.github.io/lineabase_aire/santiago.png');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed; /* Efecto parallax sutil */
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-        h1 {
-            font-size: 3rem;
-        }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        .map-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .map-card h2 {
-            padding: 10px;
-            margin: 0;
-            font-size: 1.2rem;
-            background: #333;
-            color: #fff;
             text-align: center;
         }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 20px;
+            border-radius: 20px;
+        }
+
+        /* Contenedor principal en una sola columna */
+        .main-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .map-section {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .map-section h2 {
+            margin: 0;
+            padding: 20px;
+            background: #2c3e50;
+            color: #ecf0f1;
+            font-size: 1.5rem;
+            border-bottom: 4px solid #3498db;
+        }
+
+        /* Contenedor del Iframe para asegurar que sea responsivo */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 600px; /* Altura generosa para ver detalles */
+        }
+
         iframe {
             width: 100%;
-            height: 500px;
+            height: 100%;
             border: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Observatorio de Aire Santiago</h1>
+    <h1>Observatorio de Aire</h1>
+    <p>Monitoreo Satelital - Región Metropolitana de Santiago</p>
 </header>
 
-<div class="container">
-    <div class="map-card">
-        <h2>Monóxido de Carbono (CO)</h2>
-        <iframe src="https://cmas-473117.projects.earthengine.app/view/santiagoco"></iframe>
+<div class="main-content">
+
+    <div class="map-section">
+        <h2>Concentración de Monóxido de Carbono (CO)</h2>
+        <div class="iframe-container">
+            <iframe src="https://cmas-473117.projects.earthengine.app/view/santiagoco" allowfullscreen></iframe>
+        </div>
     </div>
 
-    <div class="map-card">
+    <div class="map-section">
         <h2>Dióxido de Nitrógeno (NO2)</h2>
-        <iframe src="https://cmas-473117.projects.earthengine.app/view/santiagono2"></iframe>
+        <div class="iframe-container">
+            <iframe src="https://cmas-473117.projects.earthengine.app/view/santiagono2" allowfullscreen></iframe>
+        </div>
     </div>
 
-    <div class="map-card">
+    <div class="map-section">
         <h2>Metano (CH4)</h2>
-        <iframe src="https://cmas-473117.projects.earthengine.app/view/santiagoch4"></iframe>
+        <div class="iframe-container">
+            <iframe src="https://cmas-473117.projects.earthengine.app/view/santiagoch4" allowfullscreen></iframe>
+        </div>
     </div>
 
-    <div class="map-card">
+    <div class="map-section">
         <h2>Ozono (O3)</h2>
-        <iframe src="https://cmas-473117.projects.earthengine.app/view/santiago03"></iframe>
+        <div class="iframe-container">
+            <iframe src="https://cmas-473117.projects.earthengine.app/view/santiago03" allowfullscreen></iframe>
+        </div>
     </div>
 
-    <div class="map-card">
+    <div class="map-section">
         <h2>Dióxido de Azufre (SO2)</h2>
-        <iframe src="https://cmas-473117.projects.earthengine.app/view/santiagoso2"></iframe>
+        <div class="iframe-container">
+            <iframe src="https://cmas-473117.projects.earthengine.app/view/santiagoso2" allowfullscreen></iframe>
+        </div>
     </div>
+
 </div>
+
+<footer>
+    <p>&copy; 2026 Línea Base Aire - Santiago</p>
+</footer>
 
 </body>
 </html>
